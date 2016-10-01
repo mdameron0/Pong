@@ -8,16 +8,28 @@ This project is dependent on the Neo Pixel library and is being created using th
 [TODO] include schematics.
 
 Upcoming:
+
 Python serial interface:
-  Custimazation of game
-  Stat tracking
-  Sound (Maybe, might include a stand alone sound module)
-  Game initialization
-  GUI creation and ease of use controls
+  
+	Custimazation of game
+  
+	Stat tracking
+  
+	Sound (Maybe, might include a stand alone sound module)
+  
+	Game initialization
+  
+	GUI creation and ease of use controls
+
 Arduino:
-  Serial reader/writer
-  Button inclusion
-  Actual game stuff
+
+  	Serial reader/writer
+
+	Button inclusion
+  
+	Actual game stuff
+
 Laptop or Pi driven console/scoreboard:
-  Controls the python scripting
+  
+	Controls the python scripting
   
