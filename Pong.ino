@@ -20,5 +20,4 @@ void loop() {
 
 	gameState.logicTick();
 
-
 }

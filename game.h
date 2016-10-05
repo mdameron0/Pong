@@ -1,9 +1,16 @@
+#include "paddle.h"
 #ifndef GAME_H
 #define GAME_H
 
 struct stats{
   int player1Score;
   int player2Score;
+
+  paddle player1Paddle;
+  paddle player2Paddle;
+
+  int player1DeadZone;
+  int player2DeadZone;
   };
 class game{
 public:
@@ -20,6 +27,9 @@ public:
   int position();
 private:
   void blankRender();
+  void scoreCheck();
+  void reset();
+  void winAnimation(int winner);
 };
 
 #endif

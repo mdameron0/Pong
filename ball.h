@@ -14,7 +14,7 @@ struct ballStats{
 class ball{
 	ballStats BALL_STAT;
 public:
-
+	void reset();
 	ball();
 	int getPosition();
 	void tick();

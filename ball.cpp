@@ -33,18 +33,29 @@ void ball::tick(){
         else{
             BALL_STAT.currentPos -= 1;
           }
-        Serial.print((BALL_STAT.currentPos));
-        Serial.print(" ");
+        //Serial.print((BALL_STAT.currentPos));
+        //Serial.print(" ");
       }
   }
 
-ball::ball(){
+void ball::reset(){
 
-	BALL_STAT.currentPos = 0;
+	BALL_STAT.currentPos = 15;
 	//Int time to change pixel
 	BALL_STAT.ballSpeed = 200;
 	BALL_STAT.timeSinceLastTick = 0;
 	//True is right, false is left. Left refers to the side with the soldered logic joint.
-	BALL_STAT.velocityDirection = false;
+	BALL_STAT.velocityDirection = random(0, 2);
+
+}
+
+ball::ball(){
+
+	BALL_STAT.currentPos = 15;
+	//Int time to change pixel
+	BALL_STAT.ballSpeed = 200;
+	BALL_STAT.timeSinceLastTick = 0;
+	//True is right, false is left. Left refers to the side with the soldered logic joint.
+	BALL_STAT.velocityDirection = random(0,2);
 
 }

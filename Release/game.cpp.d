@@ -1,4 +1,4 @@
-game.cpp.o: ../game.cpp ../game.h ../ball.h \
+game.cpp.o: ../game.cpp ../game.h ../paddle.h ../ball.h \
  C:\Users\Myatt\Desktop\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.14\cores\arduino/Arduino.h \
  C:\Users\Myatt\Desktop\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.14\cores\arduino/binary.h \
  C:\Users\Myatt\Desktop\sloeber\arduinoPlugin\packages\arduino\hardware\avr\1.6.14\cores\arduino/WCharacter.h \
@@ -13,6 +13,8 @@ game.cpp.o: ../game.cpp ../game.h ../ball.h \
  C:\Users\Myatt\Documents\Adafruit_NeoPixel-master\Adafruit_NeoPixel/Adafruit_NeoPixel.h
 
 ../game.h:
+
+../paddle.h:
 
 ../ball.h:
 
