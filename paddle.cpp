@@ -11,7 +11,7 @@
 paddle::paddle(){
 	myStats.active = false;
 	//in ms.
-	myStats.activeTime = 100;
+	myStats.activeTime = 200;
 	myStats.cooldown = 100;
 	myStats.lastTimeUsed = 0;
 
@@ -21,15 +21,18 @@ paddle::~paddle(){
 
 }
 
-void paddle::toggle(){
-	if (millis() < myStats.lastTimeUsed + myStats.cooldown){
-		myStats.active = !myStats.active;
+void paddle::buttonDown(){
+
+	if (millis() > myStats.lastTimeUsed + myStats.cooldown){
+		Serial.println("Activate");
+		myStats.active = true;
 		myStats.lastTimeUsed = millis();
 	}
 }
 
 void paddle::tick(){
-	if (myStats.active && myStats.lastTimeUsed - millis() < myStats.activeTime){
+	if (myStats.active && millis() - myStats.lastTimeUsed > myStats.activeTime){
+		Serial.println("DEactivate");
 		myStats.active = false;
 	}
 
@@ -37,7 +40,16 @@ void paddle::tick(){
 
 }
 
+void paddle::hit(){
+
+	this->myStats.active = false;
+}
+
 bool paddle::isActive(){
 	return myStats.active;
 }
 
+void paddle::reset(){
+	this->myStats.active = false;
+	this->myStats.lastTimeUsed = 0;
+}

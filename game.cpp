@@ -28,6 +28,11 @@ game::game(){
     //LED that, if touched, calles a lose.
     gameStats.player1DeadZone = 0;
     gameStats.player2DeadZone = SIZEOFSTRIP - 1;
+
+    //Where the paddle is considered
+    gameStats.player1PaddleZone = 1;
+    gameStats.player2PaddleZone = SIZEOFSTRIP - 2;
+
     //Initialize
     strip.begin();
     //Show blank (no LEDs have values asigned yet, so they're blank)
@@ -50,11 +55,31 @@ void game::start(){
 //Called to updateLogic
 void game::logicTick(){
 
-    gameBall.tick();
+
+    if(digitalRead(7) == HIGH){
+    	clickHandler(1);
+    }
+    if (digitalRead(8) == HIGH){
+    	clickHandler(2);
+    }
+
+    if((gameBall.getPosition() == gameStats.player1PaddleZone && gameStats.player1Paddle.isActive()) || (gameBall.getPosition() == gameStats.player2PaddleZone  && gameStats.player2Paddle.isActive())){
+    	Serial.println("Ping");
+    	gameBall.reverseDirection();
+    	gameBall.tick();
+    	//Lazy way to reset the paddles. Fix this so it's spread across a few functions.
+    	gameStats.player1Paddle.hit();
+    	gameStats.player2Paddle.hit();
+    }
+
     gameStats.player1Paddle.tick();
     gameStats.player2Paddle.tick();
+
+
+    gameBall.tick();
     this->scoreCheck();
     this->render();
+
   }
 
 void game::clickHandler(int player){
@@ -64,6 +89,14 @@ void game::clickHandler(int player){
 	 * But at that point you could really just make a struct in this class since we don't ever have to call a function for the paddle to work.
 	 * Than again, the paddle class will handle all the cooldown information. So maybe leave it seperate for readability.
 	 */
+
+	if(player == 1){
+		Serial.println("Player 1 button");
+		gameStats.player1Paddle.buttonDown();
+	} else{
+		Serial.println("Player 2 button");
+		gameStats.player2Paddle.buttonDown();
+	}
 
   }
 
@@ -108,6 +141,9 @@ void game::scoreCheck(){
 void game::reset(){
 	gameBall.reset();
 	this->render();
+
+	gameStats.player1Paddle.reset();
+	gameStats.player2Paddle.reset();
 	delay(1000);
 }
 

@@ -20,9 +20,11 @@ class paddle{
 public:
 	paddle();
 	~paddle();
-	void toggle();
+	void buttonDown();
 	void tick();
 	bool isActive();
+	void reset();
+	void hit();
 
 private:
 	paddleStats myStats;

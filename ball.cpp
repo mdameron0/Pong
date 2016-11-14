@@ -10,6 +10,11 @@ int ball::getPosition(){
 
 void ball::reverseDirection(){
     BALL_STAT.velocityDirection = !BALL_STAT.velocityDirection;
+    if(BALL_STAT.ballSpeed > 20){
+        BALL_STAT.ballSpeed -= 10;
+    }
+
+    Serial.println(BALL_STAT.ballSpeed);
   }
 
 void ball::tick(){
@@ -42,7 +47,7 @@ void ball::reset(){
 
 	BALL_STAT.currentPos = 15;
 	//Int time to change pixel
-	BALL_STAT.ballSpeed = 200;
+	BALL_STAT.ballSpeed = 100;
 	BALL_STAT.timeSinceLastTick = 0;
 	//True is right, false is left. Left refers to the side with the soldered logic joint.
 	BALL_STAT.velocityDirection = random(0, 2);
@@ -53,7 +58,7 @@ ball::ball(){
 
 	BALL_STAT.currentPos = 15;
 	//Int time to change pixel
-	BALL_STAT.ballSpeed = 200;
+	BALL_STAT.ballSpeed = 100;
 	BALL_STAT.timeSinceLastTick = 0;
 	//True is right, false is left. Left refers to the side with the soldered logic joint.
 	BALL_STAT.velocityDirection = random(0,2);

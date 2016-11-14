@@ -13,7 +13,16 @@ game gameState;
 void setup() {
 	pinMode(13, OUTPUT);
 	pinMode(6, OUTPUT);
+	//Player 1 button
+	pinMode(7, INPUT);
+	//Player 2 button
+	pinMode(8, INPUT);
+
 	Serial.begin(9600);
+
+	Serial.println(digitalRead(8));
+	Serial.println (digitalRead(7));
+
 }
 
 void loop() {

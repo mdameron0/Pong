@@ -11,6 +11,9 @@ struct stats{
 
   int player1DeadZone;
   int player2DeadZone;
+
+  int player1PaddleZone;
+  int player2PaddleZone;
   };
 class game{
 public:
