@@ -1,5 +1,5 @@
 # Pong
-1 dimensional pong game with Arduino
+1 dimensional pong game with Arduino written in C++ ran on Arduino Uno
 
 This is a repository for a 1 dimensional pon game created with Arduino, Adafruit Neo Pixel, and 100CM arcade buttons.
 
